@@ -1,0 +1,38 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    overflow: hidden;
+}
+
+.button:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.primary {
+  background-color: rgba(0, 0, 0, 0.20);
+  color: var(--foreground);
+  border: none;
+}
+
+.submit {
+  background-color: lightblue;
+  color: black;
+}
+
+.modaldrawer {
+  border: 2px solid #FFDA00;
+  background-color: #FFDA00;
+  color: black;
+}
+
+.sm {
+  font-size: 0.875rem;
+  padding: var(--size-sm);
+}
