@@ -48,9 +48,6 @@ export const getCategorizedArticles = (): Record<string, ArticleItem[]> => {
   return categorized;
 };
 
-
-
-
 // befor this one, no visible articleList or article
 export const getArticleData = async (id: string) => {
     const fullPath = path.join(articlesDirectory, `${id}.md`)
@@ -59,12 +56,12 @@ export const getArticleData = async (id: string) => {
 
     const matterResult = matter(fileContents)
 
-    const processedContent = await remark().use(html).process(matterResult.content)
-
-    const contentHtml = processedContent.toString()
+    
+    //const processedContent = await remark().use(html).process(matterResult.content)
+    //const contentHtml = processedContent.toString()
     return{
         id, 
-        contentHtml, 
+        rawMarkdown: matterResult.content,
         title: matterResult.data.title,
         category: matterResult.data.category,
         tags: matterResult.data.tags ?? [],

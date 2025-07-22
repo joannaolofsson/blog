@@ -5,7 +5,7 @@ export interface ArticleItems {
 }
 
 export interface SelectedArticle {
-    
+
 }
 
 
@@ -15,6 +15,6 @@ export type ArticleItem = {
     date: string;
     category: string;
     tags?: string[];
-  contentHtml?: string;
+    contentHtml?: string;
 }
 

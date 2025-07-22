@@ -2,17 +2,31 @@
   position: sticky;
   bottom: 0;
   background: white;
-  display: flex;
-  justify-content: space-between;
   padding: 1rem;
   border-top: 1px solid var(--border);
   z-index: 10;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .footer {
     position: static;
     padding-top: 2rem;
   }
+}
+
+.buttonGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+    .buttonGroup {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
 }
 

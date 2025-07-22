@@ -18,7 +18,7 @@ const ExpandableSection = ({ label, children }: Props) => {
       <div className={styles.header} onClick={() => setExpanded(prev => !prev)}>
         <div className={styles.editSectionHeading}>
         <h4>{label}</h4>
-        <IconButton 
+        <IconButton variant="ghost" size='sm' 
         icon={<RiArrowDownSLine size={20}/>}>
           {expanded ? 'Collapse' : 'Expand to Edit'}
         </IconButton>

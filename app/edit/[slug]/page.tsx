@@ -1,54 +1,78 @@
-
 import { getArticleData } from "@/app/lib/articles.server";
 import styles from './page.module.css';
 import ExpandableSection from "@/app/components/ExpandableSection";
-import Button from "@/app/components/shared/Button/Button";
+import IconButton from "@/app/components/shared/Button/IconButton";
 import Header from "@/app/components/Header";
-
+import { RiArrowGoBackFill } from "react-icons/ri";
+import Footer from "@/app/components/Footer";
 
 export default async function EditPage(request: { params: Promise<{ slug: string }> }) {
-  const { slug } = await request.params; 
-  const article = await getArticleData(slug);
+    const { slug } = await request.params;
+    const article = await getArticleData(slug);
 
-  return (
-    <section className={styles.editorContainer}>
-        <Header />
-  <h1><span className={styles.edit}>Edit:</span> {article.title}</h1>
+    return (
+        <section className={styles.editorContainer}>
+            <Header />
+            <h1><span className={styles.edit}>Edit:</span> {article.title}</h1>
 
-  <ExpandableSection label="Title">
-    <form action="" className={styles.form}>
-    <input defaultValue={article.title} spellCheck className={styles.input} />
-    </form>
-  </ExpandableSection>
+            <ExpandableSection label="Title">
+                <form action="" className={styles.form}>
+                    <div className={styles.formContent}>
+                        <input defaultValue={article.title} spellCheck className={styles.input} />
 
-  <ExpandableSection label="Tags">
-    <form action="" className={styles.form}>
-    <input defaultValue={article.tags?.join(", ")} spellCheck className={styles.input} />
-    </form>
-  </ExpandableSection>
+                        <IconButton size="sm"
+                            icon={<RiArrowGoBackFill size={16} />}
+                        ><span className={styles.buttonLabel}>Undo</span>
+                        </IconButton>
+                    </div>
+                </form>
+            </ExpandableSection>
 
-  <ExpandableSection label="Date">
-    <form action="" className={styles.form}>
-        <input defaultValue={article.date} className={styles.input} />
-    </form>
-  </ExpandableSection>
+            <ExpandableSection label="Tags">
+                <form action="" className={styles.form}>
+                    <div className={styles.formContent}>
+                        <input defaultValue={article.tags?.join(", ")} spellCheck className={styles.input} />
+                        <IconButton size="sm"
+                            icon={<RiArrowGoBackFill size={16} />}
+                        >Upload from file
+                        </IconButton>
+                    </div>
+                </form>
+            </ExpandableSection>
 
-  <ExpandableSection label="Content">
-    <form action="" className={styles.form}>
-    <textarea
-      defaultValue={article.contentHtml}
-      className={styles.textarea}
-      spellCheck
-    />
-    </form>
-  </ExpandableSection>
-<div className={styles.buttonGroup}>
-<Button variant="primary">Reset All</Button> {/** onClick={handleReset} */}
-<Button variant="primary">Preview</Button> {/** onClick={handlePreview} */}
-</div>
-</section>
+            <ExpandableSection label="Date">
+                <form action="" className={styles.form}>
+                    <div className={styles.formContent}>
+                        <input defaultValue={article.date} className={styles.input} />
+                        <IconButton size="sm"
+                            icon={<RiArrowGoBackFill size={16} />}
+                        >Upload from file
+                        </IconButton>
+                    </div>
+                </form>
+            </ExpandableSection>
 
-  );
+            <ExpandableSection label="Content">
+                <form action="" className={styles.form}>
+                    <div className={styles.formContent}>
+                        <textarea
+                            defaultValue={article.rawMarkdown}
+                            className={styles.textarea}
+                            spellCheck
+                        />
+                        <IconButton size="sm"
+                            icon={<RiArrowGoBackFill size={16} />}
+                        >Upload from file
+                        </IconButton>
+                    </div>
+                </form>
+            </ExpandableSection>
+            <section>
+                <Footer />
+            </section>
+        </section>
+
+    );
 }
 
 

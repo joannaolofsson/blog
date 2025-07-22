@@ -1,0 +1,15 @@
+.previewContainer {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+}

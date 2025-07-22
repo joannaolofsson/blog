@@ -4,22 +4,17 @@
     border: 0.5px solid var(--foreground);
     padding: var(--space-md);
     margin: 0 0 var(--space-sm) 0;
-}
-
-.articleRow {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 0.5rem;
+    width: 100%;
 }
 
 .articleItemRow {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
-    border-bottom: 1px solid var(--foreground);
+    margin-bottom: var(--space-sm);
+    border-bottom: 0.5px solid var(--foreground);
+    width: 100%;
 }
 
 .articleTitle {

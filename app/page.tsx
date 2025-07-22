@@ -27,8 +27,6 @@ export default function Home() {
   fetchArticles();
 }, []);
 
-
-
   return (
     <section className={styles.page}>
       <header className={styles.header}>

@@ -3,10 +3,12 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    padding-inline: var(--size-md);
+    padding-inline: var(--space-md);
 }
 
 .textContent {
     font-family: 'Rasa', serif;
     font-size: 1.25rem;
+    width: 100%;
+    margin: 0 auto;
 }

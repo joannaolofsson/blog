@@ -26,7 +26,12 @@ export default function IconButton({
   return (
     <button
       type="button"
-      className={`${styles.button} ${styles[variant]} ${isIconOnly ? styles.iconOnly : ''}`}
+      className={`
+        ${styles.button}
+        ${styles[variant]}
+        ${styles[size]}
+        ${isIconOnly ? styles.iconOnly : ''}
+      `}
       aria-label={ariaLabel ?? label}
       onClick={onClick}
       disabled={disabled}

@@ -1,4 +1,3 @@
-// app/[slug]/page.tsx
 import { getArticleData } from "../lib/articles.server";
 import Header from "../components/Header";
 import styles from './page.module.css';
@@ -12,7 +11,7 @@ export default async function ArticlePage(request: { params: Promise<{ slug: str
       <Header />
       <h1>{article.title}</h1>
       <p>{article.date}</p>
-      <article dangerouslySetInnerHTML={{ __html: article.contentHtml }} className={styles.textContent}/>
+      <article dangerouslySetInnerHTML={{ __html: article.rawMarkdown }} className={styles.textContent}/>
     </section>
   );
 }

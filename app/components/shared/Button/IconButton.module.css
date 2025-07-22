@@ -10,10 +10,16 @@
   background-color: rgba(0, 0, 0, 0.20);
   color: var(--background);
 }
-/* IconButton.module.css */
+
+.ghost {
+  background-color: transparent;
+  color: var(--foreground);
+}
+
 .sm {
-  font-size: 0.875rem;
-  padding: var(--size-sm);
+  /*font-size: 0.875rem;*/
+  width: 32px;
+  height: 32px;
   gap: 6px;
 }
 
