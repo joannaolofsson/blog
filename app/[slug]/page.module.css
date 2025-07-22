@@ -1,5 +1,12 @@
-.headerContainer {
+.container {
     display: flex;
-    justify-content: column;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
+    padding-inline: var(--size-md);
+}
+
+.textContent {
+    font-family: 'Rasa', serif;
+    font-size: 1.25rem;
 }

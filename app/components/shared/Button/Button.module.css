@@ -16,9 +16,19 @@
 }
 
 .primary {
+  background-color: rgba(0, 0, 0);
+  color: var(--background);
+  font-size: 1rem;
+  border: none;
+  padding: 12px 24px;
+}
+
+.secondary {
   background-color: rgba(0, 0, 0, 0.20);
   color: var(--foreground);
+  font-size: 1rem;
   border: none;
+  padding: 12px 24px;
 }
 
 .submit {

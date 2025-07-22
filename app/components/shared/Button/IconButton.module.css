@@ -13,7 +13,7 @@
 /* IconButton.module.css */
 .sm {
   font-size: 0.875rem;
-  padding: 6px 10px;
+  padding: var(--size-sm);
   gap: 6px;
 }
 

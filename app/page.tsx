@@ -6,19 +6,28 @@ import ArticleItemList from "./components/ArticleListItem";
 import { useEffect, useState } from "react";
 import { ArticleItem } from "./types";
 import UploadForm from "./components/UploadForm";
-import EditForm from "./components/EditForm";
 
 export default function Home() {
   const [articles, setArticles] = useState<Record<string, ArticleItem[]>>({});
 
   useEffect(() => {
-    async function fetchArticles() {
-      const res = await fetch('/api/articles');
-      const data = await res.json();
-      setArticles(data);
-    }
-    fetchArticles();
-  }, []);
+  async function fetchArticles() {
+    const res = await fetch('/api/articles');
+    const flatData: ArticleItem[] = await res.json();
+
+    const grouped: Record<string, ArticleItem[]> = {};
+    flatData.forEach((article) => {
+      const category = article.category ?? "Uncategorized";
+      if (!grouped[category]) grouped[category] = [];
+      grouped[category].push(article);
+    });
+
+    setArticles(grouped);
+  }
+  fetchArticles();
+}, []);
+
+
 
   return (
     <section className={styles.page}>
@@ -32,16 +41,15 @@ export default function Home() {
 
       <section className={styles.content}>
         {articles &&
-          Object.keys(articles).map((category) => (
+          Object.entries(articles).map(([category, articleGroup]) => (
+            Array.isArray(articleGroup) ? (
             <ArticleItemList
               key={category}
               category={category}
-              articles={articles[category]}
+              articles={articleGroup}
             />
-          ))}
-      </section>
-            <section>
-        <EditForm />
+          ): null
+        ))}
       </section>
     </section>
   );

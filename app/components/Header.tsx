@@ -1,13 +1,13 @@
 'use client';
 import Link from "next/link";
-import { RiArrowRightLine } from "react-icons/ri";
-
+import { RiArrowLeftLine } from "react-icons/ri";
+import styles from './Header.module.css';
 
 export default function Header({ backHref = "/" }: { backHref?: string }) {
   return (
-    <header style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-      <Link href={backHref}>
-      <RiArrowRightLine />
+    <header className={styles.headerContainer}>
+      <Link href={backHref} className={styles.headerContent}>
+      <RiArrowLeftLine />
         <span>Back</span>
       </Link>
     </header>

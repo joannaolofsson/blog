@@ -8,6 +8,7 @@ type IconButtonProps = {
   variant?: "primary" | "ghost" | "danger" | "text"; // Visual style
   size?: "sm" | "md" | "lg";          // Padding and font size
   onClick?: () => void;
+  children: React.ReactNode;
   disabled?: boolean;
 };
 export default function IconButton({
@@ -16,6 +17,7 @@ export default function IconButton({
   ariaLabel,
   variant = "primary",
   size = "md",
+  children,
   onClick,
   disabled,
 }: IconButtonProps) {

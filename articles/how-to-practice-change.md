@@ -1,7 +1,7 @@
 ---
-title: "How to practice change"
-category: "Habitual change"
-date: "19-07-2025"
+title: What do I need to know
+date: 07-19-2025
+category: Developer Journey
 ---
 
-# How Stoicism can help
+###

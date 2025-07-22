@@ -67,6 +67,7 @@ export const getArticleData = async (id: string) => {
         contentHtml, 
         title: matterResult.data.title,
         category: matterResult.data.category,
+        tags: matterResult.data.tags ?? [],
         date: dayjs(matterResult.data.date, "DD-MM-YYYY").format("MMMM Do YYYY"),
     }
 }

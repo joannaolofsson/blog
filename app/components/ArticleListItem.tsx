@@ -14,18 +14,15 @@ const ArticleItemList = ({ category, articles }: Props) => {
         <section className={styles.ArticleItemsListContainer}>
             <h2>{category}</h2>
             <div className={styles.articleRow}>
-            {articles.map((article, id) => (
-                <Link href={`/${article.id}`} key={id} className="">
-                    {article.title} 
-                </Link>
-            ))
-            }
-            <Button
-            variant="primary"
-            size="sm"
-            children="Edit"
-            >
-            </Button>
+                {articles.map((article, id) => (
+                    <div key={id} className={styles.articleItemRow}>
+                        <span className={styles.articleTitle}>{article.title}</span>
+                        <Link href={`/edit/${article.id}`}>
+                            <Button variant="secondary" size="sm" children="Edit" />
+                        </Link>
+                    </div>
+                ))}
+
             </div>
         </section>
     )

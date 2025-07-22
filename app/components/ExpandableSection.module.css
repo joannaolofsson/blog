@@ -1,0 +1,4 @@
+.editSectionHeading {
+    display: flex;
+    justify-content: space-between;
+}

@@ -4,7 +4,7 @@ date: 07-19-2025
 category: Developer Journey
 ---
 
-## I just discovered what happed to my curiosity, using AI. I have always been a curious person. Ever since I was a small child I asked questions. Back then they came to me naturally and mostly began with the word "Why". It most certainly annoyed the hell out of a lot of people. My dad used to say, "If you don't ask questions, you won't learn anything" or something simular. You might ask, how can you know that this is what he said and the answer is, because I can feel it, It strikes a cord in me.
+### I just discovered what happed to my curiosity, using AI. I have always been a curious person. Ever since I was a small child I asked questions. Back then they came to me naturally and mostly began with the word "Why". It most certainly annoyed the hell out of a lot of people. My dad used to say, "If you don't ask questions, you won't learn anything" or something simular. You might ask, how can you know that this is what he said and the answer is, because I can feel it, It strikes a cord in me.
 
 ### As A CBT therapist asking questions is the backbone of the trait. To really tap into a persons story. To understand my clients I needed to ask questions to help them shift perspective, to get new insigts, to feel empowered and to propel them forward. And then I transitioned into development. And all my questions vanished. Why? I felt confused. On paper, I was still a curious person." What happened to all of my questions?". 
 

@@ -1,10 +1,7 @@
 import React from 'react'
 import IconButton from './shared/Button/IconButton'
-import { GoFileDirectory } from "react-icons/go";
-import { PiGoogleDriveLogoDuotone } from "react-icons/pi";
+import { RiDriveFill, RiFileAddFill } from "react-icons/ri";
 import styles from './UploadForm.module.css';
-
-// TODO: Button Should be added, if uploading several files. 
 
 export default function UploadForm() {
   return (
@@ -12,11 +9,11 @@ export default function UploadForm() {
       <h4>Upload your md files</h4>
       <div className={styles.buttonGroup}>
         <IconButton
-          icon={<GoFileDirectory size={24}/>}
-        />
+          icon={<RiFileAddFill size={24}/>}
+        >Upload from file</IconButton>
         <IconButton
-          icon={<PiGoogleDriveLogoDuotone size={24}/>}
-        />
+          icon={<RiDriveFill size={24}/>}
+        >Google Drive</IconButton>
       </div>
     </form>
   )

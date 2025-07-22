@@ -1,0 +1,18 @@
+.footer {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    position: static;
+    padding-top: 2rem;
+  }
+}
+

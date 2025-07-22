@@ -1,0 +1,13 @@
+.headerContainer {
+    display: flex;
+    gap: 0.5rem;
+    padding: var(--space-sm) 0 var(--space-sm) 0;
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+}
