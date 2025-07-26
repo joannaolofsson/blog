@@ -8,6 +8,11 @@ import { ArticleItem } from "../types";
 import { remark } from "remark";
 import html from "remark-html";
 
+
+let advancedFormat = require("dayjs/plugin/advancedFormat");
+dayjs.extend(advancedFormat)
+
+
 const articlesDirectory = path.join(process.cwd(), "articles");
 
 export const getSortedArticles = (): ArticleItem[] => {
@@ -23,7 +28,7 @@ export const getSortedArticles = (): ArticleItem[] => {
     return {
       id,
       title: data.title,
-      date: data.date,
+      date: dayjs(data.date, "DD-MM-YYYY").format("MMMM Do YYYY"),
       category: data.category,
     };
   });
@@ -50,18 +55,24 @@ export const getCategorizedArticles = (): Record<string, ArticleItem[]> => {
 
 // befor this one, no visible articleList or article
 export const getArticleData = async (id: string) => {
-    const fullPath = path.join(articlesDirectory, `${id}.md`)
+  const fullPath = path.join(articlesDirectory, `${id}.md`);
 
-    const fileContents = fs.readFileSync(fullPath, "utf-8")
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`Article not found: ${id}`);
+  }
 
-    const matterResult = matter(fileContents)
+  const fileContents = fs.readFileSync(fullPath, "utf-8");
+  const matterResult = matter(fileContents);
 
-    
-    //const processedContent = await remark().use(html).process(matterResult.content)
-    //const contentHtml = processedContent.toString()
+  fs.readdirSync(articlesDirectory).forEach(filename => {
+  console.log("Found:", filename);
+});
+
+    const processedContent = await remark().use(html).process(matterResult.content)
+    const contentHtml = processedContent.toString()
     return{
         id, 
-        rawMarkdown: matterResult.content,
+        contentHtml,
         title: matterResult.data.title,
         category: matterResult.data.category,
         tags: matterResult.data.tags ?? [],

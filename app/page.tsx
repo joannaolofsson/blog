@@ -6,9 +6,12 @@ import ArticleItemList from "./components/ArticleListItem";
 import { useEffect, useState } from "react";
 import { ArticleItem } from "./types";
 import UploadForm from "./components/UploadForm";
+import matter from "gray-matter";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [articles, setArticles] = useState<Record<string, ArticleItem[]>>({});
+  const router = useRouter();
 
   useEffect(() => {
   async function fetchArticles() {
@@ -27,16 +30,32 @@ export default function Home() {
   fetchArticles();
 }, []);
 
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "") // remove symbols
+    .trim()
+    .replace(/\s+/g, "-");     // replace spaces with -
+
+const handleUpload = async (text: string) => {
+  const res = await fetch('/api/articles', {
+    method: 'POST',
+    body: text,
+  });
+
+  const { slug } = await res.json();
+
+  router.push(`/edit/${slug}`);
+};
+
   return (
     <section className={styles.page}>
       <header className={styles.header}>
         <h1>Tiny Commits</h1>
       </header>
       <section>
-        <UploadForm />
+        <UploadForm onUpload={handleUpload} />
       </section>
-
-
       <section className={styles.content}>
         {articles &&
           Object.entries(articles).map(([category, articleGroup]) => (

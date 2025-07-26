@@ -13,7 +13,7 @@ export default async function PreviewPage(request: { params: Promise<{ slug: str
             <h1>{article.title}</h1>
             <p>{article.date}</p>
             <div className={styles.tag}></div>
-            <p>{article.rawMarkdown}</p>
+            <p>{article.contentHtml}</p>
         </section>
 
     );

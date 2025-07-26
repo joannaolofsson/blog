@@ -14,9 +14,15 @@
     font-style: italic;
 }
 
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
 .form {
     padding: var(--size-md);
-    border: 0.5px solid var(--foreground);
 }
 
 .formContent {
@@ -24,7 +30,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .input, .textarea {
@@ -32,12 +38,12 @@
   font-size: 1rem;
   padding: var(--space-sm);
   border: 0.5px solid var(--foreground);
-  border-radius: 4px;
 }
 
 .textarea {
   height: 10rem;
   resize: vertical;
+  width: 100%;
 }
 
 .buttonGroup {

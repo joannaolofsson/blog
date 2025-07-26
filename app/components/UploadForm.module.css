@@ -3,15 +3,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
     border: 0.5px solid var(--foreground);
     padding: var(--space-md);
+    overflow-x: hidden;
 }
 
-.buttonGroup {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    padding-top: var(--space-sm);
+.uploadButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+  background-color: hotpink;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  color: white; /* or inherit if using currentColor */
+
+  /* hover/focus for polish */
+}
+.uploadButton:hover,
+.uploadButton:focus {
+  background-color: lightpink;
+}
+
+.hiddenFileInput {
+  display: none;
 }
